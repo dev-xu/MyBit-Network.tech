@@ -3,19 +3,19 @@
 
 CURRENT_DIR=$PWD
 CHAIN_DIR=$1
-#Move to chain directory that was passed to program
-cd $CHAIN_DIR
-if [ -d chain ]; then
-  #If chain exists, remove all file within
-  rm -rf chain
-fi
-#Create chain folder
-mkdir chain
-#Run ganache in background with db set to chain folder (kill any running ganache first)
-pkill -f ganache-cli
-npx ganache-cli -d --mnemonic "myth like bonus scare over problem client lizard pioneer submit female collect" --networkId 70 --accounts 20 --db chain &
-#Move back to directory this program is run from
-cd $CURRENT_DIR
+# #Move to chain directory that was passed to program
+# cd $CHAIN_DIR
+# if [ -d chain ]; then
+#   #If chain exists, remove all file within
+#   rm -rf chain
+# fi
+# #Create chain folder
+# mkdir chain
+# #Run ganache in background with db set to chain folder (kill any running ganache first)
+# pkill -f ganache-cli
+# npx ganache-cli -d --mnemonic "myth like bonus scare over problem client lizard pioneer submit female collect" --networkId 70 --accounts 20 --db chain &
+# #Move back to directory this program is run from
+# cd $CURRENT_DIR
 #Deploy contracts
 npx truffle migrate --reset --network mybit
 #Kill ganache
